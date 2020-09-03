@@ -1,0 +1,23 @@
+<h1>Shopping page</h1>
+
+<h2>Add a product to your cart</h2>
+<%= form_tag add_product_path do %>
+  <%= label_tag :product, "Enter a product:" %>
+  <%= text_field_tag :product %>
+  <%= submit_tag 'add to cart' %>
+<% end %>
+
+<br><br>
+
+<h2>Your Cart</h2>
+
+<% if cart.count == 0 %>
+  <p>There are no items in your cart.</p>
+<% else %>
+  <p>Items:</p>
+  <ul>
+    <% cart.each do |item| %>
+      <li><%= item %></li>
+    <% end %>
+  </ul>
+<% end %>
